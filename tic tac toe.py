@@ -65,12 +65,24 @@ class Player:
             self.player_turn()
 
     def check_win(self):
-        if board[0] = board[1] and board[1] = board[2]:
-            print(self.name + ' has won the game!')
-        elif board[3] = board[4] and board[4] = board[5]:
-            print(self.name + ' has won the game!')
-        elif board[6] = board[7] and board[7] = board[8]:
-            print(self.name + ' has won the game!')
+        if board[0] == board[1] and board[1] == board[2]:
+            return True
+        elif board[3] == board[4] and board[4] == board[5]:
+            return True
+        elif board[6] == board[7] and board[7] == board[8]:
+            return True
+        elif board[0] == board[4] and board[4] == board[8]:
+            return True
+        elif board[2] == board[4] and board[4] == board[6]:
+            return True
+        elif board[0] == board[3] and board[3] == board[6]:
+            return True
+        elif board[1] == board[4] and board[4] == board[7]:
+            return True
+        elif board[2] == board[5] and board[5] == board[8]:
+            return True
+        
+        
         
         
 
