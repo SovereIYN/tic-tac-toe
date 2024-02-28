@@ -63,13 +63,19 @@ class Player:
         else:
             print('This space is taken, try again')
             self.player_turn()
+
+    def check_win(self):
+        if board[0] = board[1] and board[1] = board[2]:
+            print(self.name + ' has won the game!')
+        elif board[3] = board[4] and board[4] = board[5]:
+            print(self.name + ' has won the game!')
+        elif board[6] = board[7] and board[7] = board[8]:
+            print(self.name + ' has won the game!')
+        
+        
+
             
             
-                
-
-    
-
-    
     def __repr__(self):
         return 'Welcome to the game ' + self.name + ', your chosen chip is: ' + self.chip
 player1_name = input('Please enter your name, player 1: ')
