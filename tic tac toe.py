@@ -6,9 +6,10 @@ board = ['-','-','-',
          '-','-','-']
 
 def printboard(board):
-    print(board[0] + '|' + board[1] + '|' + board[2])
-    print(board[3] + '|' + board[4] + '|' + board[5])
-    print(board[6] + '|' + board[7] + '|' + board[8])
+    print('  1 2 3')
+    print('1 ' + board[0] + '|' + board[1] + '|' + board[2])
+    print('2 ' + board[3] + '|' + board[4] + '|' + board[5])
+    print('3 ' + board[6] + '|' + board[7] + '|' + board[8])
 printboard(board)
 
 class Player:
@@ -117,6 +118,8 @@ def player1_full_turn():
     player1.player_turn()
     if player1.check_win() == True:
         player1.print_winner()
+    elif '-' not in board:
+        print('The game has ended in a draw')
     else:
         player2_full_turn()
 
@@ -125,8 +128,9 @@ def player2_full_turn():
     player2.player_turn()
     if player2.check_win() == True:
         player2.print_winner()
+    elif '-' not in board:
+        print('The game has ended in a draw')
     else:
         player1_full_turn()
 
 player1_full_turn()
-            
