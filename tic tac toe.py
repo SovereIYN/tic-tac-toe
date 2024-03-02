@@ -65,29 +65,28 @@ class Player:
             self.player_turn()
 
     def check_win(self):
-        if board[0] == board[1] and board[1] == board[2]:
+        if board[0] == board[1] and board[1] == board[2] and board[0] != '-':
             return True
-        elif board[3] == board[4] and board[4] == board[5]:
+        elif board[3] == board[4] and board[4] == board[5] and board[3] != '-':
             return True
-        elif board[6] == board[7] and board[7] == board[8]:
+        elif board[6] == board[7] and board[7] == board[8] and board[6] != '-':
             return True
-        elif board[0] == board[4] and board[4] == board[8]:
+        elif board[0] == board[4] and board[4] == board[8] and board[0] != '-':
             return True
-        elif board[2] == board[4] and board[4] == board[6]:
+        elif board[2] == board[4] and board[4] == board[6] and board[2] != '-':
             return True
-        elif board[0] == board[3] and board[3] == board[6]:
+        elif board[0] == board[3] and board[3] == board[6] and board[0] != '-':
             return True
-        elif board[1] == board[4] and board[4] == board[7]:
+        elif board[1] == board[4] and board[4] == board[7] and board[1] != '-':
             return True
-        elif board[2] == board[5] and board[5] == board[8]:
+        elif board[2] == board[5] and board[5] == board[8] and board[2] != '-':
             return True
         
+    def print_winner(self):
+    
+        print(self.name + ' has won the game!')
         
-        
-        
-
-            
-            
+                
     def __repr__(self):
         return 'Welcome to the game ' + self.name + ', your chosen chip is: ' + self.chip
 player1_name = input('Please enter your name, player 1: ')
@@ -114,7 +113,20 @@ player2 = Player(player2_name, player2_chip)
     
 # step 5: check if win
 # step 6: end game
+def player1_full_turn():
+    player1.player_turn()
+    if player1.check_win() == True:
+        player1.print_winner()
+    else:
+        player2_full_turn()
 
-player1.player_turn()
-player2.player_turn()
+
+def player2_full_turn():
+    player2.player_turn()
+    if player2.check_win() == True:
+        player2.print_winner()
+    else:
+        player1_full_turn()
+
+player1_full_turn()
             
